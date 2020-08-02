@@ -1,0 +1,122 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #2e4158;
+  min-height: 30vh;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.cat {
+  text-align: center;
+  color: #2b2b52;
+}
+
+.color1 {
+  color: red;
+}
+
+.color2 {
+  color: blue;
+}
+.alligning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsive {
+  display: flex;
+}
+
+.bg-decor {
+  border-radius: 25px;
+  border: 2px solid #2e4158;
+  padding: 20px;
+  width: 300px;
+  height: 500px;
+  margin: auto;
+}
+
+.allignment {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.form_design {
+  background-color: #a3bac3;
+  width: 400px;
+  height: 320px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 0px 10px;
+}
+.form_design1 {
+  background-color: #a3bac3;
+  width: 435px;
+  height: 381px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 0px 10px;
+}
+
+.child_design {
+  float: left;
+}
+
+.fontWeight {
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: antiquewhite;
+  font-size: larger;
+}
+
+.btn-design {
+  background-color: #006989;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 12px 72px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input {
+  width: 380px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #4c6085;
+}
+
+small {
+  float: left;
+  padding: 0px 0px 0px 3px;
+}
+
+.footer {
+  height: 2.5rem;
+
+  bottom: 0;
+  width: 100%;
+  background-color: #2e4158;
+  color: white;
+}
