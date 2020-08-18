@@ -13,7 +13,7 @@ router.param("orderId", getOrderById);
 //Actual routes
 //create
 router.post(
-    "/order/creat/:userId",
+    "/order/create/:userId",
     isSignedIn,
     isAuthenticated,
     pushOrderInPurchaseList,
