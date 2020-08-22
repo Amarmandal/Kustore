@@ -38,6 +38,8 @@ export default function ManageCategories() {
     return (
         <Base
             className="container text-white"
+            title="Manage Category"
+            description="You can update and delete categories here"
         >
             <Link to="/admin/dashboard" className="btn btn-md btn-info rounded">Admin Home</Link>
             <h3 className="text-center py-4">Total {values.length} Category</h3>
