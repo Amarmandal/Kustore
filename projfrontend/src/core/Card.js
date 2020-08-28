@@ -1,10 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import CardImage from "./helper/CardImage";
 import { Redirect } from "react-router-dom";
-import { addItemToCart } from "./helper/cartHelper";
+import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
 
 
-const Card = ({product, addToCart = true, removeFromCart = false}) => {
+const Card = ({
+    product,
+    addToCart = true,
+    removeFromCart = false,
+    reload,
+    setReload
+}) => {
 
     const [redirect, setRedirect] = useState(false);
 
@@ -12,12 +18,12 @@ const Card = ({product, addToCart = true, removeFromCart = false}) => {
     const cardDescription = product ? product.description : "Default Description";
     const cardPrice = product ? product.price : "0";
 
-    const updateCart= () => {
+    const updateCart = () => {
         addItemToCart(product, () => setRedirect(true));
     }
 
     const performRedirect = () => {
-        if(redirect) {
+        if (redirect) {
             return (
                 <Redirect to="/cart" />
             );
@@ -25,7 +31,7 @@ const Card = ({product, addToCart = true, removeFromCart = false}) => {
     }
 
     const showAddToCart = (setCondition) => {
-        return(
+        return (
             setCondition && (
                 <button
                     onClick={updateCart}
@@ -38,10 +44,13 @@ const Card = ({product, addToCart = true, removeFromCart = false}) => {
     }
 
     const showRemoveFromCart = setCondition => {
-        return(
+        return (
             setCondition && (
                 <button
-                    onClick={() => { }}
+                    onClick={() => {
+                        removeItemFromCart(product._id);
+                        setReload(!reload);
+                    }}
                     className="btn btn-block btn-outline-danger mt-2 mb-2"
                 >
                     Remove from cart
@@ -56,18 +65,18 @@ const Card = ({product, addToCart = true, removeFromCart = false}) => {
             <div className="card-body">
                 {performRedirect()}
                 <div className="rounded border border-success p-2">
-                    <CardImage product={product}/>
+                    <CardImage product={product} />
                 </div>
                 <p className="lead bg-success font-weight-normal text-wrap">
                     {cardDescription}
-          </p>
+                </p>
                 <p className="btn btn-success rounded  btn-sm px-4">$ {cardPrice}</p>
                 <div className="row">
                     <div className="col-12">
                         {showAddToCart(addToCart)}
                     </div>
                     <div className="col-12">
-                       {showRemoveFromCart(removeFromCart)}
+                        {showRemoveFromCart(removeFromCart)}
                     </div>
                 </div>
             </div>
