@@ -55,13 +55,13 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
                     .then(response => {
                         setInfo({...info, success: response.success, loading: false});
                         console.log("PAYMENT SUCCCESS");
-                        const orderData = {
-                            products: products,
-                            transaction_id: response.transaction.id,
-                            amount: response.transaction.amount,
+                        // const orderData = {
+                        //     products: products,
+                        //     transaction_id: response.transaction.id,
+                        //     amount: response.transaction.amount,
 
-                        }
-                        createOrder(userId, token, orderData);
+                        // }
+                        // createOrder(userId, token, orderData);
                         cartEmpty(() => {
                             console.log("Did we get the crash?");
                         });
