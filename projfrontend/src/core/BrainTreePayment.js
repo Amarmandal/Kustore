@@ -6,7 +6,6 @@ import { createOrder } from "./helper/orderHelper";
 import { isAuthenticated } from "../auth/helper";
 import DropIn from "braintree-web-drop-in-react";
 
-
 const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) => {
     const [info, setInfo] = useState({
         loading: false,
@@ -56,6 +55,17 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
                     .then(response => {
                         setInfo({...info, success: response.success, loading: false});
                         console.log("PAYMENT SUCCCESS");
+                        const orderData = {
+                            products: products,
+                            transaction_id: response.transaction.id,
+                            amount: response.transaction.amount,
+
+                        }
+                        createOrder(userId, token, orderData);
+                        cartEmpty(() => {
+                            console.log("Did we get the crash?");
+                        });
+                        setReload(!reload);
                     })
                     .catch(err => {
                         setInfo({loading: false, success: false});
@@ -81,12 +91,12 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
 
     return (
         <div>
-            {info.clientToken !== null && products.length > 0 ? (
+            {info.clientToken !== null && products !== undefined ? (
                 <div>
                     <h3>Your Bill is {getAllPrice()} $</h3>
                     {brainTreeDrpoIn()}
                 </div>
-            ) : (<h3>Please Login</h3>)}
+            ) : (<h3>Please Login or Add something to Cart</h3>)}
         </div>
     )
 }
