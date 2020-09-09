@@ -8,7 +8,7 @@ const cors = require('cors')
 const app = express();
 
 //Port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 
 //Requiring routes from routes folder
 const authRoutes = require('./routes/auth');
