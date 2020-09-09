@@ -17,7 +17,7 @@ const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
 const orderRoutes = require('./routes/order');
 // const stripeRoutes = require('./routes/stripePayment');
-const paymentBRoutes = require('./routes/payment');
+const paymentBRoutes = require('./routes/payment/payment');
 
 //DB Connections
 mongoose.connect(process.env.DATABASE, {

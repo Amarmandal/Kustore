@@ -4,7 +4,7 @@ import Base from "./Base";
 import Card from "./Card";
 import { getProducts } from "./helper/coreapicalls";
 import { loadCart } from "./helper/cartHelper";
-import StripeCheckout from "./helper/StripeCheckout";
+// import StripeCheckout from "./helper/StripeCheckout";
 import BrainTreePayment from "./BrainTreePayment";
 
 

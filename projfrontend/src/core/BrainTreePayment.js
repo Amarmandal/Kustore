@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { loadCart, cartEmpty } from "./helper/cartHelper";
 import { Link } from "react-router-dom";
 import { getmeToken, processPayment } from "./helper/paymentHelper";
-import { createOrder } from "./helper/orderHelper";
 import { isAuthenticated } from "../auth/helper";
 import DropIn from "braintree-web-drop-in-react";
+import { createOrder } from "./helper/orderHelper";
 
 const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) => {
     const [info, setInfo] = useState({
@@ -18,14 +18,19 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
     const userId = isAuthenticated() && isAuthenticated().user._id;
     const token = isAuthenticated() && isAuthenticated().token;
 
+    useEffect(() => {
+        getToken(userId, token);
+    }, [reload]);
+
+
     const getToken = (userId, token) => {
-        getmeToken(userId, token).then(info => {
-            // console.log("INFORMATION", info);
-            if (info !== undefined) {
-                if (info.error) {
-                    setInfo({ ...info, error: info.error });
+        getmeToken(userId, token).then(data => {
+            // console.log(data);
+            if (data !== undefined) {
+                if (data.error) {
+                    setInfo({ ...info, error: data.error });
                 } else {
-                    const clientToken = info.clientToken;
+                    const clientToken = data.clientToken;
                     setInfo({ clientToken });
                 }
             }
@@ -43,6 +48,7 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
     const onPurchase = () => {
         setInfo({ loading: true });
         let nonce;
+
         let getNonce = info.instance
             .requestPaymentMethod()
             .then(data => {
@@ -51,17 +57,18 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
                     paymentMethodNonce: nonce,
                     amount: getAllPrice()
                 };
+
                 processPayment(userId, token, paymentData)
                     .then(response => {
                         setInfo({...info, success: response.success, loading: false});
                         console.log("PAYMENT SUCCCESS");
-                        // const orderData = {
-                        //     products: products,
-                        //     transaction_id: response.transaction.id,
-                        //     amount: response.transaction.amount,
+                        const orderData = {
+                            products: products,
+                            transaction_id: response.transaction.id,
+                            amount: response.transaction.amount,
 
-                        // }
-                        // createOrder(userId, token, orderData);
+                        }
+                        createOrder(userId, token, orderData);
                         cartEmpty(() => {
                             console.log("Did we get the crash?");
                         });
@@ -74,7 +81,7 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
             })
     }
 
-    const brainTreeDrpoIn = () => (
+    const brainTreeDropIn = () => (
         <div>
             <DropIn
                 options={{ authorization: info.clientToken }}
@@ -85,16 +92,12 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
 
     )
 
-    useEffect(() => {
-        getToken(userId, token);
-    }, []);
-
     return (
         <div>
-            {info.clientToken !== null && products !== undefined ? (
+            {(info.clientToken !== null && (products !== undefined && products.length !== 0)) ? (
                 <div>
                     <h3>Your Bill is {getAllPrice()} $</h3>
-                    {brainTreeDrpoIn()}
+                    {brainTreeDropIn()}
                 </div>
             ) : (<h3>Please Login or Add something to Cart</h3>)}
         </div>
