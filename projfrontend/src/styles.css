@@ -11,3 +11,9 @@ body {
 footer {
   margin-top: 6%;
 }
+
+.button-khalti:hover {
+  background-color: #4B0082;
+  color: white;
+  border: 2px solid #4B0082;
+}

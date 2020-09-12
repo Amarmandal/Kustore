@@ -14,6 +14,7 @@ import ManageProducts from './admin/ManageProducts';
 import UpdateProduct from './admin/UpdateProduct';
 import UpdateCategory from './admin/UpdateCategory';
 import Cart from './core/Cart';
+import SuccessPurchase from './core/SuccessPurchase';
 
 export default function Routes() {
     return (
@@ -23,7 +24,11 @@ export default function Routes() {
                 <Route path="/signup" component={Signup} />
                 <Route path="/signin" component={Signin} />
                 <Route path="/cart" component={Cart} />
+                <PrivateRoute path="/success/purchase" component={SuccessPurchase} />
                 <PrivateRoute path="/user/dashboard" component={UserDashBoard} />
+                <PrivateRoute path="/user/order/history" component={UserDashBoard} />
+                <PrivateRoute path="/user/order/status" component={UserDashBoard} />
+                <PrivateRoute path="/user/payment/history" component={UserDashBoard} />
                 <AdminRoute path="/admin/dashboard" component={AdminDashBoard} />
                 <AdminRoute path="/admin/create/category" component={AddCategory} />
                 <AdminRoute path="/admin/categories" component={ManageCategories} />

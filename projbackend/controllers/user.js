@@ -27,7 +27,7 @@ exports.updateUser = (req, res) => {
     User.findByIdAndUpdate(
         { _id: req.profile._id },
         { $set: req.body },
-        { new: true, useFindAndModify: false },
+        { new: true, useFindAndModify: true },
         (err, user) => {
             if (err) {
                 return res.status(400).json({
@@ -73,7 +73,7 @@ exports.pushOrderInPurchaseList = (req, res, next) => {
     User.findOneAndUpdate(
         { _id: req.profile._id },
         { $push: { purchases: purchases} }, //$push is an Update Operator
-        { new: true }, //If true returns the updated document
+        { new: true, useFindAndModify: true }, //If true returns the updated document
         (err, purchases) => {
             if (err) {
                 return res.status(400).json({
