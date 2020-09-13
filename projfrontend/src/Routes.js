@@ -15,6 +15,8 @@ import UpdateProduct from './admin/UpdateProduct';
 import UpdateCategory from './admin/UpdateCategory';
 import Cart from './core/Cart';
 import SuccessPurchase from './core/SuccessPurchase';
+import OrderHistory from './user/OrderHistory';
+import PurchaseHistory from './user/PurchaseHistory';
 
 export default function Routes() {
     return (
@@ -26,9 +28,8 @@ export default function Routes() {
                 <Route path="/cart" component={Cart} />
                 <PrivateRoute path="/success/purchase" component={SuccessPurchase} />
                 <PrivateRoute path="/user/dashboard" component={UserDashBoard} />
-                <PrivateRoute path="/user/order/history" component={UserDashBoard} />
-                <PrivateRoute path="/user/order/status" component={UserDashBoard} />
-                <PrivateRoute path="/user/payment/history" component={UserDashBoard} />
+                <PrivateRoute path="/user/order/history" component={OrderHistory} />
+                <PrivateRoute path="/user/purchase/history" component={PurchaseHistory} />
                 <AdminRoute path="/admin/dashboard" component={AdminDashBoard} />
                 <AdminRoute path="/admin/create/category" component={AddCategory} />
                 <AdminRoute path="/admin/categories" component={ManageCategories} />

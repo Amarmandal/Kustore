@@ -17,10 +17,7 @@ export default function UserDashBoard() {
             <Link to="/user/order/history" className="nav-link text-info">Order History</Link>
           </li>
           <li className="list-group-item">
-            <Link to="/user/order/status" className="nav-link text-info">Order Status</Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/user/payment/history" className="nav-link text-info">Payment History</Link>
+            <Link to="/user/purchase/history" className="nav-link text-info">Purchase History</Link>
           </li>
         </ul>
       </div>

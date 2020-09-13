@@ -71,6 +71,20 @@ exports.getAllOrders = (req, res) => {
         });
 };
 
+exports.getUserOrders = (req, res) => {
+    const userId = req.profile._id;
+    Order.find({user: {_id: userId}})
+        .populate("user", "_id name")
+        .exec((err, order) => {
+            if(err) {
+                return res.status(400).json({
+                    error: "No orders found in DB"
+                })
+            }
+            res.json(order);
+        })
+}
+
 exports.getOrderStatus = (req, res) => {
     res.json(Order.schema.path("status").enumValues);
 };

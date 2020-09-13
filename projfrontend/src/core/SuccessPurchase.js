@@ -8,7 +8,7 @@ const SuccessPurchase = () => {
       className="text-center"
     >
       <Link to="/" type="button" className="mx-2 btn btn-lg btn-info">Shop More</Link>
-      <Link to="/user/dashboard" type="button" className="mx-2 btn btn-lg btn-outline-light">View Orders</Link>
+      <Link to="/user/order/history" type="button" className="mx-2 btn btn-lg btn-outline-light">View Orders</Link>
     </Base>
   )
 }
