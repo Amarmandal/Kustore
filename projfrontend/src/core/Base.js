@@ -10,7 +10,7 @@ const Base = ({
 }) => (
 		<div>
 			<Menu />
-			<div className="container-fluid">
+			<div className="container-fluid main-base">
 				<div className="jumbotron bg-dark text-white text-center">
 					<h2 className="display-4">{title}</h2>
 					<p className="lead">{description}</p>
@@ -19,8 +19,8 @@ const Base = ({
 			</div>
 			<footer className="footer bg-dark py-3">
 				<div className="container-fluid bg-success text-white text-center py-3">
-					<h4>If you got any questions, feel free to reach out!</h4>
-					<button className="btn btn-warning btn-lg">Contact Us</button>
+					<h4>If you want to add your products, please reach us out!</h4>
+					<a className="btn btn-warning btn-lg" href="mailto:email.kustore@gmail.com">Contact Us</a>
 				</div>
 				<div className="container">
 					<div className="text-muted">

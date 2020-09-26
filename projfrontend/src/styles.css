@@ -4,12 +4,22 @@
   border-radius: 0px;
 }
 
+.jumbotron {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-bottom: 0;
+}
+
+.main-base {
+  min-height: 100vh;
+}
+
 body {
   background: #343a40;
 }
 
 footer {
-  margin-top: 6%;
+  margin-top: 0;
 }
 
 .button-khalti:hover {
