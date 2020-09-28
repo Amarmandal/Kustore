@@ -37,7 +37,7 @@ export default function ManageCategories() {
 
     return (
         <Base
-            className="container text-white"
+            className="container text-dark"
             title="Manage Category"
             description="You can update and delete categories here"
         >

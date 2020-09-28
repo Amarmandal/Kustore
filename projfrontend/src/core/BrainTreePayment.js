@@ -83,7 +83,7 @@ const BrainTreePayment = ({ products, setReload = f => f, reload = undefined }) 
 				options={{ authorization: info.clientToken }}
 				onInstance={(instance) => (info.instance = instance)}
 			/>
-			<button className="btn btn-block btn-success" onClick={onPurchase}>Buy</button>
+			<button className="btn btn-block btn-info" onClick={onPurchase}>Buy</button>
 		</div>
 
   )

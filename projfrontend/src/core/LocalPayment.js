@@ -85,8 +85,8 @@ const LocalPayment = ({ products }) => {
       {(isAuthenticated() && products !== undefined && products.length !== 0) &&
         <>
           <h3 className="my-3">Your Bill is NPR {getAllPrice() * 120}</h3>
-          <button className="my-3 mx-3 ml-3 btn btn-lg btn-outline-success" onClick={handleEsewa}>Pay with esewa</button>
-          <button className="my-3 mx-3 btn btn-lg btn-outline-light button-khalti" onClick={handleKhalti}>Pay with Khalti</button>
+          <button className="my-3 mx-3 ml-3 btn btn-lg btn-success" onClick={handleEsewa}>Pay with esewa</button>
+          <button className="my-3 mx-3 btn btn-lg button-khalti" onClick={handleKhalti}>Pay with Khalti</button>
         </>
       }
     </div>

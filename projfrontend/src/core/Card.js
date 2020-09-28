@@ -35,7 +35,7 @@ const Card = ({
             setCondition && (
                 <button
                     onClick={updateCart}
-                    className="btn btn-block btn-outline-success mt-2 mb-2"
+                    className="btn btn-block btn-info mt-2 mb-2"
                 >
                     Add to Cart
                 </button>
@@ -60,17 +60,17 @@ const Card = ({
     }
 
     return (
-        <div className="card text-white bg-dark border border-info ">
-            <div className="card-header lead">{cardTitle}</div>
+        <div className="card">
+            <div className="card-header lead text-dark">{cardTitle}</div>
             <div className="card-body">
                 {performRedirect()}
-                <div className="rounded border border-success p-2">
+                <div className="rounded p-2">
                     <CardImage product={product} />
                 </div>
-                <p className="lead bg-success font-weight-normal text-wrap">
+                <p className="lead text-dark font-weight-normal text-wrap">
                     {cardDescription}
                 </p>
-                <p className="btn btn-success rounded  btn-sm px-4">$ {cardPrice}</p>
+                <p className="btn btn-info rounded  btn-sm px-4">$ {cardPrice}</p>
                 <div className="row">
                     <div className="col-12">
                         {showAddToCart(addToCart)}

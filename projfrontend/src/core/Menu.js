@@ -6,16 +6,16 @@ import { isAuthenticated, signout } from "../auth/helper";
 
 const currentTab = (history, path) => {
     if (history.location.pathname === path) {
-        return { color: "#2ecc72" }
+        return { color: "#3797DB" }
     } else {
-        return { color: "#ffffff" }
+        return { color: "#292b2c" }
     }
 }
 
 
 const Menu = (prop) => (
-    <div>
-        <ul className="nav nav-tabs bg-dark">
+    <div className = 'sticky-top'>
+        <ul className="nav nav-tabs bg">
             <li className="nav-item">
                 <Link style={currentTab(prop.history, "/")} className="nav-link" to="/">
                     Home

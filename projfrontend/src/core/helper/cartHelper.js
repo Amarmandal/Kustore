@@ -29,7 +29,7 @@ export const removeItemFromCart = (productId) => {
         }
 
         cart.map((product, index) => {
-            if(product._id == productId) {
+            if(product._id === productId) {
                 cart.splice(index, 1);
             }
         })

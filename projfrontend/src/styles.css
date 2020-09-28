@@ -15,15 +15,68 @@
 }
 
 body {
-  background: #343a40;
+  background: #e3e3e4;
 }
 
 footer {
   margin-top: 0;
 }
 
-.button-khalti:hover {
-  background-color: #4B0082;
+.button-khalti {
+  border-color:  #4B0082;
+  color: black;
+}
+
+.button-khalti:hover{
+  background-color:  #4B0082;
   color: white;
-  border: 2px solid #4B0082;
+}
+
+.text_style{
+  font-family: "Comic Sans MS", "Comic Sans", cursive;;
+}
+
+.jumbo{
+  background: #e3e3e4;
+}
+
+.bg{
+  background: #EAF0F1;
+}
+
+.each-slide > div{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.center{
+  text-align: center;
+}
+
+.text {
+  margin-left: 800px;
+  text-align:center;
+}
+
+.text-1 {
+  text-align:center;
+}
+
+.text h1,h2{
+  text-align: center;
+  color: black;
+}
+
+.img1{
+  background: url(./assets//bg.jpg);
+}
+
+.img2{
+  background: url(./assets/silver.jpg);
 }
