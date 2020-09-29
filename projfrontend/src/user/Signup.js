@@ -47,7 +47,8 @@ const Signup = () => {
             email: "",
             password: "",
             error: "",
-            success: true
+            success: true,
+            status: false
           })
         }
       })
