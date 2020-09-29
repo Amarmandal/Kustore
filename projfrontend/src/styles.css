@@ -114,7 +114,7 @@ footer {
 }
 
 .scrollTop {
-  position: fixed; 
+  position: fixed;
   left: 48.75%;
   z-index: 1000;
   width: 100%;

@@ -3,7 +3,7 @@ const { check, validationResult } = require('express-validator');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 const nodemailer = require('nodemailer');
-
+const hbs = require('nodemailer-handlebars');
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
@@ -115,6 +115,27 @@ const sendEmail = (otp, email) => {
         }
     });
 
+    transporter.use("compile",hbs({
+      viewEngine:{
+         partialsDir:"./mail_template/",
+         defaultLayout:""
+     },
+    viewPath:"./mail_template/",
+   extName:".hbs"
+}));
+
+let mailOptions = {
+  from: process.env.EMAIL,
+  to: `${email}`,
+  subject: 'KUstore - OTP VERIFICATION',
+  text: ' ',
+  template: 'otp',
+  context: {
+      otp
+  } // send extra values to template
+
+}
+/*
     let mailOptions = {
         from: process.env.EMAIL,
         to: `${email}`,
@@ -126,7 +147,7 @@ const sendEmail = (otp, email) => {
             </div>
         `
     }
-
+*/
     transporter.sendMail(mailOptions, function (err, data) {
         if (err) {
             console.log(err);
