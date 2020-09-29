@@ -30,7 +30,7 @@ export default function Home() {
            <Menu />
             <Slideshow />
             <BackToTop />
-            <div className="row mr-0 text-center p-4">
+            <div className="row m-0 text-center p-4">
             {products.map((product, index) => {
                 return(
                     <div key={index} className="col-lg-3 col-md-6  mb-4">
