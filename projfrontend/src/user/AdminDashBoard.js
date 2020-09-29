@@ -58,10 +58,10 @@ export default function AdminDashBoard() {
 			className="container bg p-4"
 		>
 			<div className="row">
-				<div className="col-3">
+				<div className="col-md-3 col-sm-5">
 					{adminLeftSide()}
 				</div>
-				<div className="col-9">
+				<div className="col-md-9 col-sm-7">
 					{adminRightSide()}
 				</div>
 			</div>

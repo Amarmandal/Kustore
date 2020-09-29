@@ -37,11 +37,11 @@ export default function Cart() {
   return (
     <Base title="Cart Page" description="Ready to checkout">
       <div className="row text-center text-dark">
-        <div className="col-6">
+        <div className="col-lg-4 col-md-8 col-sm-12">
           {(products === undefined || products.length === 0) ? <h2>Please add something to cart</h2> : <h2>Products in the cart</h2>}
           {products !== undefined ? loadAllProducts() : null}
         </div>
-        <div className="col-6">
+        <div className="col-lg-7 ml-auto">
           <BrainTreePayment
             products={products}
             setReload={setReload}

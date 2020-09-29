@@ -61,7 +61,7 @@ const Card = ({
 
     return (
         <div className="card">
-            <div className="card-header lead text-dark">{cardTitle}</div>
+            <div className="card-header lead text-primary p-50"><b>{cardTitle}</b></div>
             <div className="card-body">
                 {performRedirect()}
                 <div className="rounded p-2">

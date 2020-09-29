@@ -12,7 +12,10 @@ const properties = {
 }
 
 const scrollPage = () => {
-    window.scrollBy(0,600);
+    window.scrollBy({
+      top: 700,
+      behavior: 'smooth'
+    });
 }
 
 const Slideshow = () => {
@@ -33,7 +36,17 @@ const Slideshow = () => {
             <div className = 'img2'>
                 <div className = 'text-1'>
                     <h1 className = 'center'>KUstore</h1>
-                    <p>Happy Dashain Tihar and Chhath!</p>
+                    <h2>Happy Dashain Tihar and Chhath!</h2>
+                    <button className = 'btn btn-lg btn-primary' onClick = {scrollPage}>Shop Now</button>
+                </div>
+            </div>
+          </div>
+          <div className="each-slide">
+            <div className = 'img3'>
+                <div className = 'text-1'>
+                    <h1 className = 'center'>KUstore</h1>
+                    <h1><b>COVID-19 PANDEMIC </b></h1>
+                    <h2>Stay Home, Stay Safe!</h2>
                     <button className = 'btn btn-lg btn-primary' onClick = {scrollPage}>Shop Now</button>
                 </div>
             </div>
