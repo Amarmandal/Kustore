@@ -111,10 +111,10 @@ footer {
 
 .scrollTop {
   position: fixed;
-  left: 46.5%;
+  left: 46.25%;
   z-index: 1000;
   width: 100%;
-  bottom: 21%;
+  bottom: 17.5%;
   height: 20px;
   cursor: pointer;
   animation: fadeIn 0.3s;
