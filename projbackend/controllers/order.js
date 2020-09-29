@@ -1,5 +1,6 @@
 const { Order, ProductCart } = require("../models/order");
 const nodemailer = require('nodemailer');
+const hbs = require('nodemailer-handlebars');
 
 const sendEmail = (info) => {
     const {email, name} = info;
@@ -11,16 +12,26 @@ const sendEmail = (info) => {
         }
     });
 
+    transporter.use("compile",hbs({
+        viewEngine:{
+           partialsDir:"./mail_template/",
+           defaultLayout:""
+       },
+      viewPath:"./mail_template/",
+     extName:".hbs"
+ }));
+
     let mailOptions = {
         from: process.env.EMAIL,
         to: `${email}`,
-        subject: 'Purchase Confirmation',
-        html: `
-            <div>
-                <h4>Congratulations ${name} ! Your order has been placed!</h4>
-                <p>Visit User Dashboard to know about your order status</p>
-            </div>
-        `
+        subject: 'KUstore - Purchase Confirmation',
+        text: ' ',
+        template: 'regis',
+        context: {
+            name,
+            email
+        } // send extra values to template
+
     }
 
     transporter.sendMail(mailOptions, function (err, data) {
