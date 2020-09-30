@@ -21,8 +21,8 @@ const LocalPayment = ({ products }) => {
     tAmt: getAllPrice() * 120,
     pid: "ee2c3ca1-696b-4cc5-a6be-2c40d929d453",
     scd: "epay_payment",
-    su: "http://merchant.com.np/page/esewa_payment_success",
-    fu: "https://kustore.netlify.app"
+    su: "https://kustore.netlify.app/success/purchase",
+    fu: "https://kustore.netlify.app/failed/purchase"
   }
 
   const post = (path, params) => {

@@ -15,6 +15,7 @@ import UpdateProduct from './admin/UpdateProduct';
 import UpdateCategory from './admin/UpdateCategory';
 import Cart from './core/Cart';
 import SuccessPurchase from './core/SuccessPurchase';
+import FailedPurchase from './core/FailedPurchase';
 import OrderHistory from './user/OrderHistory';
 import PurchaseHistory from './user/PurchaseHistory';
 
@@ -27,6 +28,7 @@ export default function Routes() {
                 <Route path="/signin" component={Signin} />
                 <Route path="/cart" component={Cart} />
                 <PrivateRoute path="/success/purchase" component={SuccessPurchase} />
+                <PrivateRoute path="/failed/purchase" component={FailedPurchase} />
                 <PrivateRoute path="/user/dashboard" component={UserDashBoard} />
                 <PrivateRoute path="/user/order/history" component={OrderHistory} />
                 <PrivateRoute path="/user/purchase/history" component={PurchaseHistory} />
