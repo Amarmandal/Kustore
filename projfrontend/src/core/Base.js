@@ -18,7 +18,7 @@ const Base = ({
 				<div className={className}>{children}</div>
 			</div>
 			<footer className="footer py-3">
-				<div className="container-fluid contact-bg text-dark text-center py-3 text_style">
+				<div className="container-fluid contact-bg text-dark text-center py-3">
 					<h4>If you want to add your products, please reach us out!</h4>
 					<a className="btn btn-primary btn-lg" href="mailto:email.kustore@gmail.com">Contact Us</a>
 				</div>
