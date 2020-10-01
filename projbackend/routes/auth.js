@@ -6,6 +6,7 @@ const { signout, signup, signin, isSignedIn, sendotp } = require('../controllers
 router.post('/signup', [
     check('name').isLength({ min: 3 }).withMessage('Must be at least 3 char long'),
     check('email').isEmail().withMessage('Please Enter the valid'),
+
     check('password').isLength({ min: 5 }).withMessage('Must be at least 5 char long')
 ], signup);
 
@@ -16,6 +17,8 @@ router.post('/signin', [
 
 router.get('/signout', signout);
 
-router.post('/sendOtp', sendotp);
+router.post('/sendOtp', [
+    check('email').isEmail().withMessage('Please Enter the valid'),
+], sendotp);
 
 module.exports = router

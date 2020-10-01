@@ -135,19 +135,7 @@ let mailOptions = {
   } // send extra values to template
 
 }
-/*
-    let mailOptions = {
-        from: process.env.EMAIL,
-        to: `${email}`,
-        subject: 'OTP Verification',
-        html: `
-            <div>
-                <p>Your 6 digit otp is <strong>${otp}</strong></p>
-                <p>Enter the code in the website to continue registration process</p>
-            </div>
-        `
-    }
-*/
+
     transporter.sendMail(mailOptions, function (err, data) {
         if (err) {
             console.log(err);
@@ -156,15 +144,32 @@ let mailOptions = {
 }
 
 exports.sendotp = (req, res) => {
-  let otp = '';
-  for (let i = 0; i < 6; i++) {
-    otp += Math.floor(Math.random() * 10);
-  }
-  sendEmail(otp, req.body.email);
-  res.json({
-    'OTP': otp
-  });
-  // console.log(req.body);
+  const errors = validationResult(req);
+  const { email } = req.body;
 
+  if (!errors.isEmpty()) {
+    const msgParam = errors.array()[0].param;
+    return res.status(422).json({
+      error: `${errors.array()[0].msg} ${msgParam[0].toUpperCase() + msgParam.slice(1)}`
+    })
+  }
+
+  User.findOne({email: email}, (err, user) => {
+    if(!user) {
+      let otp = '';
+      for (let i = 0; i < 6; i++) {
+        otp += Math.floor(Math.random() * 10);
+      }
+      sendEmail(otp, req.body.email);
+
+      return res.json({
+        'OTP': otp
+      });
+    } else {
+      return res.status(422).json({
+        error: "User email already exist"
+      })
+    }
+  })
 }
 

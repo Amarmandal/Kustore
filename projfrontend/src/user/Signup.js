@@ -38,7 +38,8 @@ const Signup = () => {
             email: "",
             password: "",
             error: data.error,
-            success: false
+            success: false,
+            status: false
           });
         } else {
           setValues({
@@ -58,8 +59,15 @@ const Signup = () => {
   const handleSendOTP = (event) => {
     event.preventDefault();
     sendOTP({email}).then(data => {
-      setValues({...values, otpSent: true})
-      localStorage.setItem("otp", JSON.stringify(data.OTP));
+     if(!data.error) {
+       setValues({ ...values, otpSent: true })
+       localStorage.setItem("otp", JSON.stringify(data.OTP));
+     } else {
+       setValues({
+         ...values,
+         error: data.error
+       })
+     }
     });
   }
 
